@@ -1,0 +1,290 @@
+@import url("/css/logo.css");
+
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to bottom, #474850, #33343C);
+}
+
+body {
+  width: 100%;
+}
+
+#headerrow {
+  position: fixed;
+  height: 90px;
+  top: 0;
+  width: 100%;
+  background-color: #424242;
+}
+
+#headerrow svg#logo {
+  margin-top: 5px;
+}
+
+.pagebody {
+  position: absolute;
+  top: 90px;
+  bottom: 25px;
+  width: 100%;
+  color: white;
+}
+
+.pagebodywarn {
+  position: absolute;
+  top: 140px;
+  bottom: 25px;
+  width: 100%;
+  color: white;
+}
+
+.nowarning {
+  height: 80px;
+  padding-top: 10px;
+}
+
+#hostspan {
+  text-align: right;
+}
+
+#hostspan a {
+  color: white;
+}
+
+.msgbox {
+  padding-right: 60px;
+  padding-top: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+
+  /* only size 'xs' and below */
+  #headerrow {
+    height: 100px;
+  }
+
+  .pagebody {
+    top: 100px;
+  }
+
+  .pagebody2 {
+    top: 250px;
+  }
+
+  .nowarning {
+    height: 60px;
+  }
+
+  .msgbox {
+    padding-right: 0px;
+    padding-top: 0px;
+  }
+
+  #hostspan {
+    text-align: center;
+  }
+}
+
+#footertext {
+  position: fixed;
+  height: 25px;
+  bottom: 0;
+  width: 100%;
+  background-color: #212121;
+  color: white;
+  text-align: center;
+}
+
+.loginCont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 55%;
+  width: 80%;
+}
+
+.error-panel a {
+  color: white;
+}
+
+p.form-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 5%;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+form.login {
+  width: 270px;
+  margin: 0 auto;
+}
+
+form.login input[type="text"],
+form.login input[type="password"] {
+  width: 100%;
+  margin: 0;
+  background: 0;
+  border: 0;
+  border-bottom: 0px solid #ffffff;
+  outline: 0;
+  font-style: normal;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  outline: 0;
+}
+
+form.login input[type="submit"] {
+  width: 100%;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 500;
+  outline: 0;
+  cursor: pointer;
+  letter-spacing: 1px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+form.login input[type="submit"]:hover {
+  transition: background-color 0.5s ease;
+}
+
+form.login label,
+form.login a {
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+form.login a {
+  transition: color 0.5s ease;
+}
+
+form.login a:hover {
+  color: #209AFF;
+}
+
+.logoCol {
+  height: 100%;
+}
+
+#logodiv svg#logo {
+  width: 240px;
+  height: 100%;
+}
+
+/** Re-style web-kit browser autocomplete boxes (Fixes Chrome's ugly yellow background) **/
+@-webkit-keyframes autofill {
+  to {
+    color: white;
+    background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
+/* PSS-CSS */
+.d-none {
+  display: none;
+}
+
+.PSS-pagelogin {
+  display: flex;
+  height: 100vh;
+}
+
+.PSS-signin {
+  background: rgb(71, 72, 80);
+  background: linear-gradient(180deg, rgba(71, 72, 80, 1) 0%, rgba(51, 52, 60, 1) 100%);
+  width: 100%;
+  color: white;
+}
+
+.d-flex{
+  display: flex;
+  border-radius: 8px;
+}
+
+.d-flex> svg {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+
+.PSS-logincon {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.PSS-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 16px;
+  gap: 12px;
+  background: #505358;
+  border-radius: 5px;
+  margin-bottom: 5%;
+}
+
+.PSS-inputItem {
+  color: #FFFFFF;
+  width: 78px;
+  height: 25px;
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.PSS-formtitle {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 500px;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-align: left;
+  color: #ffffff;
+  margin-top: 5%;
+  margin-bottom: 20px;
+}
+.btn-success {
+  color: #fff;
+  background-color: #209AFF;
+  border-color: #209AFF;
+}
+
+/* login error */
+.pta-text1 {
+  text-align: center;
+  min-width: 40vh;
+  font-family: 'Fira Sans';
+  font-size: 20px;
+  margin-bottom: 7px;
+  color:red;
+}
+
+.pta-text2 {    text-align: center;
+  min-width: 40vh;
+  font-family: 'Fira Sans';
+  font-size: 20px;
+  margin-top: 0px;
+  color: red;
+}

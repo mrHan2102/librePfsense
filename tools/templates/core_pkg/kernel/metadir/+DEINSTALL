@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ "${2}" != "DEINSTALL" ]; then
+	exit 0
+fi
+
+echo "===> Keeping a copy of current kernel in /boot/kernel.old"
+
+# Check if there is a current kernel to be moved
+if [ ! -f ${PKG_ROOTDIR}/boot/kernel/kernel.gz ] \
+    && [ ! -f ${PKG_ROOTDIR}/boot/kernel/kernel ]; then
+	echo "ERROR: Current kernel not found"
+	exit 1
+fi
+
+[ -d ${PKG_ROOTDIR}/boot/kernel.old ] \
+	&& rm -rf ${PKG_ROOTDIR}/boot/kernel.old
+
+cp -Rp ${PKG_ROOTDIR}/boot/kernel ${PKG_ROOTDIR}/boot/kernel.old
+exit $?

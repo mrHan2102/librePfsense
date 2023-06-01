@@ -1,0 +1,1671 @@
+/*
+ * pfSense.css
+ *
+ * part of pfSense (https://www.pfsense.org)
+ * Copyright (c) 2016 Electric Sheep Fencing
+ * Copyright (c) 2016-2023 Rubicon Communications, LLC (Netgate)
+ * All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import url("/vendor/bootstrap/css/bootstrap.min.css");
+@import url("/css/fonts/roboto.css");
+@import url("/vendor/jquery-ui/jquery-ui-1.12.1.min.css");
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient(to bottom, #474850, #33343C);
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Fira Sans', sans-serif !important;
+}
+
+body.no-menu #jumbotron {
+    padding: 100px 0;
+    background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%)
+}
+
+body.no-menu {
+    padding-top: 70px;
+}
+
+body.no-menu #jumbotron {
+    margin-top: 75px;
+}
+
+body#index .icons {
+    float: right;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a.fa, i.fa {
+    color: white;
+    font-size: 14px;
+}
+
+h1 a:link, h1 a:visited {
+    color: #000000;
+    text-decoration: none !important;
+}
+
+h1 a:hover, h1 a:active {
+    color: #000000;
+    text-decoration: none !important;
+}
+
+/* Zero-width optional linebreaks can help the browser to linebreak at 'good' places.
+   Unfortunately the two most compatible options aren't consistently supported.
+   "\00200B" or #8203; is part of unicode and widely implemented; and <wbr> is widely
+   supported even on old browsers but not IE<5.5 and IE>7.
+   https://stackoverflow.com/a/23759279 suggests a neat "80%" solution for broad
+   compatibility pre-HTML5 - use <wbr> and automatically insert #&8203; after it. Should
+   be invisible, facilitates neat line breaking when manual control is desired. */
+
+wbr:after {
+    content: "\00200B";
+}
+
+.container.fixed {
+    padding-top: 60px;
+}
+
+.ui-sortable-handle {
+    cursor: move;
+}
+
+.ui-widget {
+    /* font-family: Roboto, sans-serif; */
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.table-striped>tbody>tr.disabled:nth-of-type(odd) {
+    background-color: rgba(249, 249, 249, .5);
+    color: rgba(51,51,51,.5);
+}
+
+.table-striped>tbody>tr.disabled:nth-of-type(even) {
+    background-color: rgba(255, 255, 255, .5);
+    color: rgba(51,51,51,.5);
+}
+
+.table-hover>tbody>tr.disabled:hover {
+    background-color: rgba(245, 245, 245, .5);
+}
+
+tr.disabled i.fa {
+    opacity: .5;
+}
+
+tr.disabled a {
+    color: rgba(51, 122, 183, .5)
+}
+
+.contains-table table {
+    border: 1px solid #ddd;
+}
+
+/** Content structure */
+.table-responsive {
+    clear: both;
+    margin-bottom: 0px;
+}
+
+/* navigation */
+.navbar {
+    margin-bottom: 10px;
+}
+
+.navbar-inverse {
+    background-color: #212121;
+}
+
+.navbar-brand > img {
+    /* reduce logo size */
+    max-width: 127px;
+    max-height: 36px;
+    width: auto;
+    height: auto;
+}
+
+.navbar-brand svg#logo {
+    width: 105px;
+}
+
+.logo-st0 {
+    fill:#FFFFFF;
+}
+
+.logo-st1 {
+    fill:#FFFFFF;
+}
+
+.logo-st2 {
+    fill:#FFFFFF;
+}
+
+.navbar-brand {
+    padding: 5px 10px 0 10px;
+    line-height: .3em;
+}
+/* update ui */
+.nav>li>a {
+    padding: 14px 19px 10px 19px;
+    border-bottom: 5px solid #F5F5F5;
+    border-radius: 0;
+    color: #bdbdbd;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    border-bottom: 5px solid #B71C1C;
+    background-color: #212121 !important;
+    color: white !important;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav li.open>a, .nav li.open>a:focus, .nav-pills>li.active>a:hover {
+    border-bottom: 5px solid #B71C1C;
+    color: #B71C1C;
+    background-color: #F5F5F5;
+}
+
+.navbar-inverse .navbar-nav >li>a {
+    border-bottom: 5px solid #212121;
+    color: #BDBDBD;
+}
+
+.nav-tabs>li>a {
+    border-bottom: 5px solid #F5F5F5;
+    margin-bottom: 1px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover, .nav-tabs>li>a:hover {
+    border-left: 1px solid #F5F5F5;
+    border-right: 1px solid #F5F5F5;
+    border-top: 1px solid #F5F5F5;
+    background-color: #F5F5F5;
+    border-bottom: 5px solid #B71C1C;
+    margin-bottom: 0;
+    color: #B71C1C;
+    box-shadow: none;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #B71C1C;
+    margin-bottom: 15px;
+}
+
+.nav-pills {
+    margin-bottom: 20px;
+}
+
+.dropdown-menu>li>a {
+    padding: 5px 20px;
+}
+
+.navbar-right>li>a {
+    padding: 14px 15px 10px 15px;
+}
+/* end navigation */
+
+.alert {
+    border-radius: 0;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.1);
+}
+
+.panel {
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 0;
+    box-shadow: 0px 3px 7px rgba(0,0,0,.1);
+}
+
+/* update panel heading */
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: #2E3137;
+    letter-spacing: 1px;
+    height: 35px;
+}
+
+.panel-heading {
+    padding: 5px 15px;
+    border-radius: 0;
+}
+
+/* update ui */
+.panel-heading a:link, .panel-heading a:visited, .panel-title {
+    color: #209AFF;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* update ui */
+.panel-title {
+    font-size: 16px;
+    margin-top: 5px;
+
+}
+
+.panel-body {
+    padding: 0px;
+}
+
+#login .panel-heading {
+    padding: 10px 15px
+}
+
+.content {
+    padding: 10px;
+}
+
+.form-horizontal {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.form-horizontal .checkbox {
+    padding: 3px 16px;
+}
+
+.form-control {
+    height: 24px;
+    padding: 0 6px;
+    margin-bottom: 5px;
+}
+
+.form-control option {
+    padding: inherit;
+}
+
+/* location of bottom right drag icon on resizable elements */
+.ui-resizable-se {
+	bottom: 2px;
+	right: 46px;
+}
+
+#login .form-control {
+    height: 34px;
+}
+
+#login .form-group {
+    border: none;
+}
+/* update ui */
+.form-group {
+    margin: 0;
+    padding: 7px 5px 5px 5px;
+    border-bottom: 1px solid #545E6B4D;
+}
+
+.form-group:last-child {
+    border-bottom: none;
+}
+
+.form-listitem {
+	border-top: 3px solid #E0E0E0;
+}
+.form-listitem:first-child {
+	border-top: none;
+}
+
+.input-group-addon {
+    padding: 0 12px;
+}
+
+.table {
+    margin-bottom: 0px;
+}
+/*This is parsed by IE10+ only. Need this to stop empty tables from collapsing */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+ .table {
+	  margin-bottom:1px !important;
+  }
+ }
+
+.table>tbody>tr>td {
+    padding: 6px 4px 6px 10px;
+}
+
+/* active table row */
+.table>tbody>tr.active>td, .table>tbody>tr.active>th, .table>tbody>tr>td.active, .table>tbody>tr>th.active, .table>tfoot>tr.active>td, .table>tfoot>tr.active>th, .table>tfoot>tr>td.active, .table>tfoot>tr>th.active, .table>thead>tr.active>td, .table>thead>tr.active>th, .table>thead>tr>td.active, .table>thead>tr>th.active {
+    background-color: #BDBDBD;
+}
+
+/* active table row on hover */
+.table-hover>tbody>tr.active:hover>td, .table-hover>tbody>tr.active:hover>th, .table-hover>tbody>tr:hover>.active, .table-hover>tbody>tr>td.active:hover, .table-hover>tbody>tr>th.active:hover {
+    background-color: #BDBDBD;
+}
+
+/* Handle the limited space available on the Status DHCPv6 Leases table.
+ * Break DUID string when needed and use smaller text.
+ */
+.statusdhcpv6leases tbody>tr>td:nth-of-type(4) {
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: smaller;
+}
+
+/* Smaller text for IAID in leases table and in prefixes table
+ * for the route ip and its IAID.
+ */
+.statusdhcpv6leases tbody>tr>td:nth-of-type(3),
+.statusdhcpv6prefixes tbody>tr>td:nth-of-type(3) {
+    font-size: smaller;
+}
+
+/* Break DUID string in the prefixes table. */
+.statusdhcpv6prefixes tbody>tr>td:nth-of-type(5) {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.popover {
+    max-width: none;
+}
+
+.help-block {
+    margin-bottom: 0;
+}
+
+.action-buttons {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/** Form validation */
+.input-errors ul {
+    margin-top: 20px;
+}
+
+/** Page header with title and breadcrumb */
+/* update ui */
+.header {
+    /* width: 83vw; */
+    position: relative;
+    margin: 10px 0 20px 0;
+    box-shadow: 0px 1px 10px rgba(0,0,0,.3);
+    margin-bottom: 10px;
+    background-color: #2E3137;
+}
+
+.header .context-links {
+    position: absolute;
+    right: 15px;
+    top: 8px;
+}
+
+.header .context-links li {
+    float: left;
+    display: inline;
+    margin-left: 10px;
+}
+/* update ui */
+.pta-breadcrumb {
+    position: absolute;
+    z-index: 100;
+    width: 350px;
+    margin-top: -15px;
+    margin-left: 55%;
+    border-radius: 4px;
+}
+.breadcrumb-heading {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.breadcrumb-body {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.breadcrumb-body::-webkit-scrollbar {
+    display: none;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 13px;
+    top: 4px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #BFBFBF;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 11px;
+    width: 11px;
+    left: 1px;
+    bottom: 1px;
+    background-color: #373E47;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:checked + .slider.round:before {
+    background-color: #FAFAFA;
+}
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(11px);
+    -ms-transform: translateX(11px);
+    transform: translateX(11px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .slider.round:after {
+    background-color: #FAFAFA;
+}
+.breadcumb-items {
+    color: #ffff;
+    padding-left: 18px;
+    pointer-events: none;
+}
+.breadcrumb {
+    background-color: #2E3137;
+    font-size: 22px;
+}
+.breadcrumb>li{
+    color: #209AFF;
+}
+.breadcrumb>li>a{
+    color: white;
+}
+
+.breadcrumb>li+li:before {
+    color: #B71C1C;
+}
+
+ul.context-links li a {
+    color: #B71C1C;
+}
+
+/** Form tweaks */
+form .btn + .btn {
+    margin-left: 5px;
+}
+
+.input-group-inbetween {
+    border-left: 0;
+}
+
+.user-duplication .controls {
+    margin-top: 10px;
+}
+
+.checkbox.multi label {
+    display: block;
+}
+
+.checkbox.multi .btn {
+    margin-top: 5px;
+}
+
+.col-sm-10 .form-control {
+    width: calc(50% - 15px);
+}
+
+@media (max-width: 991px) {
+    .col-sm-10 .form-control {
+        width: 100%;
+    }
+}
+
+.inputselectcombo {
+    margin-bottom: 0!important;
+}
+div.inputselectcombo {
+    display: table;
+    font-size: 0px;
+}
+div.inputselectcombo select {
+    display: table-cell;
+    width: auto;
+    max-width: 95px;
+    margin-bottom: 0!important;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+div.inputselectcombo span {
+    display: table-cell;
+    width: 100%;
+}
+div.inputselectcombo span input {
+    display: table-cell;
+    width: 100%;
+    margin-bottom: 0!important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.no-separator {
+    border-bottom: 0!important;
+}
+
+/** Page footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #212121;
+    padding-top: 10px;
+    text-align: center;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+
+/** Homepage / dashboard */
+[id^="widgets-col"] {
+    min-height: 300px;
+}
+
+.widget .panel-heading {
+    background-color: #757575;
+}
+
+#widgetSequence {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 20px 0;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6);
+    border-top: 1px solid #ddd;
+}
+
+/** Styling for jQuery autocomplete widget */
+.ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 160px;
+    padding: 4px 0;
+    margin: 0 0 10px 25px;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+}
+
+/** Disable the autocomplete helper text */
+.ui-helper-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/** Override the bootstrap progress bar margins */
+.progress {
+    margin-bottom: 0px;
+    height: 14px;
+}
+
+#wizard .progress {
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    background-color: #B71C1C;
+}
+
+.progress-bar.progress-bar-success {
+    background-color: #4CAF50;
+}
+
+.progress-bar.progress-bar-warning {
+    background-color: #FBC02D;
+}
+
+.progress-bar.progress-bar-danger {
+    background-color: #B71C1C;
+}
+
+/* update ui */
+.panel-body.collapse.in {
+    overflow-x: auto;
+    background-color: #2E3137;
+    padding: 10px;
+}
+
+/** start common colors */
+.alert-warning {
+    color: #FF6F00;
+    background-color: #FFFDE7;
+    border-color: #FFECB3;
+    border-top: 5px solid #FFD600;
+}
+
+.alert-success {
+    color: #1B5E20;
+    background-color: #E8F5E9;
+    border-color: #DCEDC8;
+    border-top: 5px solid #1B5E20;
+}
+
+.alert-info {
+    color: #01579B;
+    background-color: #E1F5FE;
+    border-color: #B2EBF2;
+    border-top: 5px solid #01579B;
+}
+
+.bg-primary {
+    color: #000;
+    background-color: #009688;
+}
+
+.bg-info {
+    color: #01579B;
+    background-color: #B3E5FC;
+}
+
+.bg-danger {
+    color: #000;
+    background-color: #EF9A9A;
+}
+
+.bg-warning {
+    color: #000;
+    background-color: #FFF9C4;
+}
+
+.bg-success {
+    color: #1B5E20;
+    background-color: #C8E6C9;
+}
+
+.btn-success {
+    background-color: #43A047;
+}
+
+.btn-danger {
+    background-color: #B71C1C;
+}
+
+.btn-primary {
+    background-color: #1976D2;
+}
+
+.text-warning {
+    color: #F57F17;
+}
+
+.text-success {
+    color: #4CAF50;
+}
+
+/* css cũ */
+.text-danger {
+    color: #B71C1C;
+}
+/** end common colors */
+
+.table-hover>tbody>tr.hover-success:hover {
+    color: #000;
+    background-color: #A5D6A7;
+}
+
+.table-hover>tbody>tr.hover-danger:hover {
+    color: #000;
+    background-color: #EF9A9A;
+}
+
+.table-hover>tbody>tr.hover-warning:hover {
+    color: #000;
+    background-color: #FFF9C4;
+}
+
+/** icons are often used with onclick actions, so we need the cursor to change to a pointer */
+.icon-pointer
+{
+    cursor: pointer;
+}
+
+.icon-embed-btn
+{
+    font-size: 15px;
+    vertical-align: middle;
+    color: white;
+    padding-right: 22px;
+    padding-bottom: 17px;
+    margin-top: -0.125em;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+}
+
+/* Used when you need an icon to act as a submit button **/
+.button-icon
+{
+    color: #337AB7;
+    background: none;
+    border: 0px;
+}
+
+.btn
+{
+    padding-right: 4px;
+    padding-left: 4px;
+}
+
+.btn-group .btn {
+    margin-right: 5px;
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0px;
+}
+
+.list-group {
+    margin-bottom: 0;
+}
+
+/* icons in the dashboard panel headings should pull-right **/
+.widget-heading-icon
+{
+    display: block;
+    float: right;
+}
+
+/* update color of icon */
+.widget-heading-icon .fa {
+    color: red;
+}
+
+.widget-heading-icon .fa:hover {
+    color: #e0e0e0;
+}
+
+/* All pfSense textareas benefit from using a fixed width font **/
+textarea
+{
+    /* font-family: monospace; */
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 12px;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+}
+
+/*
+ * CSS for Standard tree layout
+ * Copyright (c) 2005 SilverStripe Limited
+ * Feel free to use this on your websites, but please leave this message in the fies
+ * http://www.silverstripe.com/blog
+ */
+
+ul.tree{
+    width: auto;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+ul.tree img{
+    border: none;
+}
+
+ul.tree, ul.tree ul {
+    padding-left: 0;
+}
+
+ul.tree ul {
+    margin-left: 16px;
+
+}
+
+ul.tree li.closed ul {
+    display: none;
+}
+
+ul.tree li {
+    list-style: none;
+    background: url(../../vendor/tree/i-repeater.gif) 0 0 repeat-y;
+    display: block;
+    width: auto;
+}
+
+ul.tree li.last {
+    list-style: none;
+    background-image: none;
+}
+
+/* Span-A: I/L/I glyphs */
+ul.tree span.a {
+    background: url(../../vendor/tree/t.gif) 0 50% no-repeat;
+    display: block;
+}
+
+ul.tree span.a.last {
+    background: url(../../vendor/tree/l.gif) 0 50% no-repeat;
+}
+
+/* Span-B: Plus/Minus icon */
+ul.tree span.b {
+
+}
+
+ul.tree span.a.children span.b {
+    background: url(../../vendor/tree/minus.gif) 0 50% no-repeat;
+    cursor: pointer;
+}
+
+ul.tree li.closed span.a.children span.b {
+    background: url(../../vendor/tree/plus.gif) 0 50% no-repeat;
+    cursor: pointer;
+}
+
+/* Span-C: Spacing and extending tree line below the icon */
+ul.tree span.c {
+    margin-left: 16px;
+}
+
+ul.tree span.a.children span.c {
+    background: url(../../vendor/tree/i-bottom.gif) 0 50% no-repeat;
+}
+
+ul.tree span.a.spanClosed span.c {
+    background-image: none;
+}
+
+/* Anchor tag: Page icon */
+ul.tree a  {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 3px 0px 3px 18px;
+    line-height: 16px;
+    background: url(../../vendor/tree/page-file.png) 0 0 no-repeat;
+}
+
+ul.tree span.a.children a {
+    background-image: url(../../vendor/tree/page-openfoldericon.png);
+}
+
+ul.tree span.a.children.spanClosed a {
+    background-image: url(../../vendor/tree/page-foldericon.png);
+}
+
+/* Unformatted tree */
+ul.tree.unformatted li {
+    background-image: none;
+    padding-left: 16px;
+}
+
+ul.tree.unformatted li li {
+    background-image: none;
+    padding-left: 0px;
+}
+
+/* Divs, by default store vertically aligned data */
+
+ul.tree li div {
+    float: right;
+    clear: right;
+    height: 1em;
+    margin-top: -26px;
+}
+
+/* As inside DIVs should be treated normally */
+ul.tree div a  {
+    padding: 0;
+    background-image: none;
+    min-height: auto;
+    height: auto;
+}
+
+ul.tree li .over{
+    background-color: pink;
+}
+
+/*
+ * End of CSS for Standard tree layout
+ */
+
+table[data-sortable].sortable-theme-bootstrap {
+    /* font-family: Roboto, sans-serif; */
+    font-family: 'Fira Sans', sans-serif;
+}
+
+table[data-sortable].sortable-theme-bootstrap thead th {
+    white-space: nowrap;
+}
+
+@media (max-width: 1199px) {
+    .nav>li>a {
+        padding: 14px 9px 10px 9px;
+    }
+}
+
+@media (max-width: 991px) {
+    /* change top navbar from horizontal to vertical */
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none !important
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-text {
+        float: none;
+        margin: 15px 0;
+    }
+    /* since 3.1.0 */
+    .navbar-collapse.collapse.in {
+        display: block!important;
+    }
+    .collapsing {
+        overflow: hidden!important;
+    }
+    .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+        max-height: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        margin-bottom: 5px;
+    }
+
+    .breadcrumb {
+        font-size: 14px;
+        padding: 15px;
+        width: 50%;
+    }
+
+    .breadcrumb li:not(:last-child), .breadcrumb>li+li:before {
+        display: none;
+    }
+}
+
+/** Override text-warning with something less red. */
+.text-warning {
+    color: #ffcc00;
+}
+
+/**Suppress href links when printing */
+a[href]:after {
+    content: normal;
+}
+
+/** Text color for diff display when comparing configs */
+.diff-text {
+    color: #000000;
+}
+
+/** Eliminate overflow in available widgets, log filter, and manage log panels. (cause of scroll bar) */
+#widget-available_panel-body>.content>.row,
+#filter-panel_panel-body>.form-group,
+#manage-log-panel_panel-body>.form-group,
+#monitoring-settings-panel_panel-body>.form-group,
+/** optionally prevent more globally by using the class hierarchy */
+.panel-body.collapse.in>.content>.row,
+.panel-body.collapse.in>.form-group
+{
+    margin-right: 0px;
+}
+
+/* Callouts */
+.bs-callout {
+    padding: 10px 15px;
+    margin: 20px 0;
+    border: 2px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+
+.bs-callout code {
+    border-radius: 3px;
+}
+
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+
+/* Callout contextual classes */
+.bs-callout-default {
+    border-left-color: #777;
+}
+
+.bs-callout-default h4 {
+    color: #777;
+}
+
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+
+.bs-callout-info {
+    border-left-color: #01579B;
+}
+
+.bs-callout-info h4 {
+    color: #01579B;
+}
+
+/* Disable 300 ms click delay so event handlers are effective. */
+/* Makes posible for non-touch compatible features to work; e.g. double tap rule to edit. */
+body{
+    touch-action: manipulation;
+}
+
+/* D3 Styles */
+
+svg {
+    display: block;
+}
+
+.d3-chart, .d3-chart svg {
+    margin: 0px;
+    padding: 10px 0;
+    height: 445px;
+    width: 100%;
+}
+
+.traffic-widget-chart, .traffic-widget-chart svg {
+    padding: 0;
+    height: 250px;
+}
+
+.traffic-widget-chart:not(:last-child) {
+    border-bottom: 2px solid #ccc;
+}
+
+.nvtooltip > h3 {
+    font-size: 14px;
+}
+
+/* Experimental styles to correct vertical alignment in forms */
+.col-sm-10 {
+    padding-top: 7px;
+}
+
+.chkboxlbl {
+    padding-top: 4px;
+}
+
+.colspanth {
+    background-color: #eeeeee;
+}
+
+/* Required input elements have a title that begins with "*". This causes
+Group.class.php to add <span class="element-required" to the title, which
+can then be used to style required input here. Example below uses a custom
+text underline, but text-color, background, font etc. could also be used */
+.element-required {
+    box-shadow: inset 0 0px 0 white, inset 0 -1px 0 black
+}
+/* CSS for System information
+*/
+/* update ui */
+.row {
+    margin: 0 !important;
+    /* display: flex; */
+}
+
+.chart-info {
+    width: 200px !important;
+    height: auto !important;
+}
+
+.chart-info-2 {
+    width: 150px !important;
+    height: auto !important;
+}
+
+.btn-state-table {
+    background-color: #209AFF;
+    font-size: 12px;
+    border-radius: 10px;
+    height: 23px;
+}
+
+.btn-state-table>a {
+    color: white;
+    line-height: 20px;
+}
+
+
+.chart {
+    display: flex;
+    align-items: center;
+}
+
+.chart-content {
+    margin-left: -40px;
+    color: white;
+}
+
+.chart-content-2 {
+    margin-left: -30px;
+    color: white;
+}
+
+.system-charts {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.check-status {
+    display: flex;
+}
+
+.status {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.status>input {
+    margin: 0;
+}
+
+.status-name {
+    color: white;
+}
+
+.system-items-1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.item-1 {
+    width: 350px;
+    display: flex;
+    padding: 10px 10px;
+    color: #209AFF;
+}
+
+.title-uptime {
+    font-weight: bolder;
+}
+
+.title-avg {
+    color: white;
+}
+
+.content-avg {
+    font-weight: bolder;
+}
+
+.system-items-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.item-2 {
+    display: flex;
+    padding: 10px 10px;
+}
+
+.item-title {
+    width: 80px;
+    font-weight: bolder;
+    color: white;
+}
+
+.item-content {
+    width: 250px;
+    color: white;
+}
+
+.last-config {
+    float: right;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+/* css table */
+.pta-table {
+    padding: 5px 15px;
+}
+/* css widget header */
+.panel-heading {
+    border-bottom: none;
+}
+
+.thead-props {
+    background-color: #373E47;
+}
+/* css widget body */
+.title-row {
+    color: white;
+}
+
+.title-row>th{
+    border-bottom: 2px solid #545E6B4D !important;
+}
+
+.tbody-props {
+    background-color: #2E3137;
+}
+
+.content-row, .content-row-squid {
+    color: white;
+    background-color: #2E3137 !important;
+}
+
+.content-row>td>a {
+    color: white;
+}
+
+.content-row-squid>td, .content-row-squid>th {
+    border-top: none !important;
+}
+
+.type-network > img{
+    margin-top: -3px;
+}
+
+.ip-network {
+    color: #34D399;
+}
+
+.table>tbody>tr>td {
+    border-top: 1px solid #545E6B4D;
+}
+/* Pta Custom CSS */
+/* Common */
+.d-flex {
+    display: flex;
+  }
+  
+  .d-column {
+    flex-direction: column;
+  }
+  
+  .d-none {
+    display: none !important;
+  }
+  
+  .space-between {
+    justify-content: space-between;
+  }
+  
+  .justify-end {
+    justify-content: flex-end;
+  }
+  
+  .align-center {
+    align-items: center;
+  }
+  
+  .w-100 {
+    width: 100%;
+  }
+  
+  .bg-white {
+    background-color: transparent;
+  }
+  
+  .shadow {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 7px;
+  }
+  
+  /* Header */
+  .pta-header {
+    color: white;
+    height: 50px;
+    background-color: #424242;
+    padding: 10px 20px;
+  }
+  
+  .pta-header a {
+    color: white;
+  }
+  
+  .pta-logo {
+    width: 170px;
+    padding-top: 7px;
+  }
+  
+  #pta-header .fa-bars::before {
+    font-size: 20px;
+  }
+  
+  /* Menu */
+  #pta-main {
+    background: linear-gradient(180deg, #474850 0%, #33343C 100%);
+    overflow: scroll;
+  }
+  
+  #pta-main::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .pta-menu {
+    width: 190px;
+    transition: all 0.3s;
+    transform: translate3d(0px, 0px, 0px);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    overflow: scroll;
+    
+  }
+  
+  .pta-menu::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .toggle-menu {
+    transform: translate3d(-190px, 0px, 0px);
+    width: 0;
+  }
+  
+  .pta-menu ul {
+    width: 190px;
+  }
+  
+  .pta-menu .pta-menu-item ul {
+    padding: 0;
+    background-color: #fff;
+    list-style: none;
+  }
+  .pta-menu .pta-menu-item li {
+    padding: 10px 20px 10px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .pta-menu .pta-menu-item li a {
+    color: #262626;
+  }
+  
+  /* Content */
+  #pta-content {
+    margin: 10px 0 10px 210px;
+    transition: all 0.3s;
+    width: 83vw;
+  }
+  
+  .toggle-margin-menu {
+    transition: all 0.3s;
+    padding-left: 0 !important;
+  }
+  
+  .icons-nav-bar{
+    width: 20px;
+    height: 20px;
+    padding-right: 5px;
+    margin-top: -3px;
+  }
+
+.pta-index-menu {
+    position: relative;
+    z-index: 100;
+}
+
+.pta-index-logout {
+    position: relative;
+    z-index: 1;
+    margin-top: 50px;
+}
+
+.content-logout {
+    font-family: 'Fira Sans', sans-serif !important;
+    font-weight: 400;
+}
+  
+  .log-out {
+    color: white;
+    border-bottom: none !important;
+    font-size: 14px;
+    padding: 14px 19px 10px;
+  }
+/* style for disk charts */
+.chart-container {
+    color: #ffff;
+    width: 100%;
+    background: #2E3137;
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.chart {
+
+    padding: 5px
+}
+
+.chart-information {
+    padding: 10px;
+    margin: 2px
+}
+
+
+.align-center {
+    align-items: center;
+}
+
+.ml-3 {
+    margin-left: 10px;
+}
+
+.chart-text {
+    position: relative;
+    top: 0;
+    z-index: 3;
+}
+
+.chart-title {
+    margin-top: 2px;
+}
+
+
+/* header */
+.button-add {
+    padding: 6px 20px 6px 20px;
+    justify-content: center;
+    border-radius: 35px;
+    background-color: #209AFF;
+    color: #ffff;
+    border: 0px !important;
+    outline: none;
+}
+.button-add :hover, .button-add:active, .button-add::after {
+    border: 0px !important;
+}
+
+.path {
+    color: #209AFF;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.sub-path {
+    color: #ffffff;
+    font-size: 16px;
+    
+}
+.container, .navbar-collapse {
+    padding: 0;
+}
+
+.menu-update {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-update {
+    display: flex !important;
+    flex-direction: column;
+    height: calc(100vh - 100px) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+.table>thead>tr>th {
+    vertical-align: middle !important;
+}
+
+/* update for all widgets */
+.text-alert{
+    color: white;
+}
+.form-footer {
+    background-color: #2E3137;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.form-widgets {
+    background-color: #373E47;
+    color: white;
+}
+.storage-using {
+    font-weight: 800;
+}
+
+.estimate {
+    color: #79757B;
+    font-weight: 400;
+}
+
+.icon-status {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+@media (min-width: 992px) {
+    #widgets-col1 {
+        width: 50vw;
+        padding-left: 0 !important;
+    }
+
+    #widgets-col2 {
+        width: 33vw;
+        padding-right: 0 !important;
+    }
+}
+
+.menu-item-update::-webkit-scrollbar{
+    display: none;
+}
+/* update page component */
+
+.page-box {
+    background-color: #2e3137;
+}
+/* .p2_segmentMainLabel-outer {
+    
+} */
+[class^="p"][class$="_segmentMainLabel-outer"] {
+    fill: white !important;
+}
